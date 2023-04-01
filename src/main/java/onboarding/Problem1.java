@@ -14,7 +14,10 @@ import java.util.List;
 class Problem1 {
 
     public static int solution(List<Integer> pobi, List<Integer> crong) {
-        return 0;
+        if(!isBothAllRight(pobi,crong)) return -1;
+        int pobiScore = listDecideMultiAndAdd(pobi);
+        int crongScore = listDecideMultiAndAdd(crong);
+        return comPareTwoInt(pobiScore,crongScore);
     }
 
     //리스트의 두 숫자가 연속인가
@@ -68,6 +71,12 @@ class Problem1 {
         return isAllRight(list1) && isAllRight(list2);
     }
 
+    //숫자 두 개가 입력받아서 앞의 숫자가 더 크면 1, 뒤가 크면 2, 같으면 0을 리턴받는 메서드
+    private static int comPareTwoInt(int num1, int num2){
+        if(num1>num2) return 1;
+        if(num1 < num2) return 2;
+        return 0;
+    }
 
 
 }
