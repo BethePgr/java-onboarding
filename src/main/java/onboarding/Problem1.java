@@ -25,4 +25,9 @@ class Problem1 {
     private static boolean isBetweenOneAndFourHundred(List<Integer> list){
         return (list.get(0) >= 1) && (list.get(1) <=400);
     }
+
+    //왼쪽이 홀수이고 오른쪽이 짝수가 맞는가
+    private static boolean oddAndEven(List<Integer> list){
+        return (list.get(0) % 2 == 1) && (list.get(1) % 2 == 0);
+    }
 }
