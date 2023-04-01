@@ -30,4 +30,12 @@ class Problem1 {
     private static boolean oddAndEven(List<Integer> list){
         return (list.get(0) % 2 == 1) && (list.get(1) % 2 == 0);
     }
+
+    //숫자가 들어오면 각자리의 숫자의 합을 구해주는 메서드
+    private static int addNum(int num){
+        if(num>=100){
+            return num/100 + (num%100)/10 + num%10;
+        }
+        return num/10 + num%10;
+    }
 }
