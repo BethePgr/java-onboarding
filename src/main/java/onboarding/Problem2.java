@@ -3,7 +3,15 @@ package onboarding;
 public class Problem2 {
 
     public static String solution(String cryptogram) {
-        return "";
+        return whileReplaceStringEnd(cryptogram);
+    }
+
+    //checkString을 반복하는 문자열이 없어질때까지 반복해주는 메서드
+    private static String whileReplaceStringEnd(String cryptogram) {
+        while (cryptogram.length() != replaceString(cryptogram).length()) {
+            cryptogram = replaceString(cryptogram);
+        }
+        return cryptogram;
     }
 
     //반복이 시작되는 인덱스랑 끝나는 인덱스(whenContinuousEnd로 구한 값)를 통해 그 사이의 값들을 빈 값으로
