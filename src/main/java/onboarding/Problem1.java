@@ -14,13 +14,15 @@ import java.util.List;
 class Problem1 {
 
     public static int solution(List<Integer> pobi, List<Integer> crong) {
-        if(!isBothAllRight(pobi,crong)) return -1;
+        if (!isBothAllRight(pobi, crong)) {
+            return -1;
+        }
         int pobiScore = listDecideMultiAndAdd(pobi);
         int crongScore = listDecideMultiAndAdd(crong);
         System.out.println("pobiScore " + pobiScore);
         System.out.println("crongScore " + crongScore);
 
-        return comPareTwoInt(pobiScore,crongScore);
+        return comPareTwoInt(pobiScore, crongScore);
     }
 
     //리스트의 두 숫자가 연속인가
@@ -55,29 +57,33 @@ class Problem1 {
     }
 
     //multipleNum과 addNum 둘 중에 어떠한 값이 더 큰가
-    private static int decideMultiAndAdd(int num){
-        return Math.max(addNum(num),multipleNum(num));
+    private static int decideMultiAndAdd(int num) {
+        return Math.max(addNum(num), multipleNum(num));
     }
 
     //리스트가 들어왔을 시 리스트이 첫 번째 값과 두 번째 값의 decideMultiAndAdd해주기
-    private static int listDecideMultiAndAdd(List<Integer> list){
-        return Math.max(decideMultiAndAdd(list.get(0)),decideMultiAndAdd(list.get(1)));
+    private static int listDecideMultiAndAdd(List<Integer> list) {
+        return Math.max(decideMultiAndAdd(list.get(0)), decideMultiAndAdd(list.get(1)));
     }
 
     //oddAndEven && isBetweenOneAndFourHundred && isContinuous 세 조건을 만족하는가?
-    private static boolean isAllRight(List<Integer> list){
+    private static boolean isAllRight(List<Integer> list) {
         return oddAndEven(list) && isBetweenOneAndFourHundred(list) && isContinuous(list);
     }
 
     //두 명 다 isAllRight를 만족하는가?
-    private static boolean isBothAllRight(List<Integer> list1, List<Integer> list2){
+    private static boolean isBothAllRight(List<Integer> list1, List<Integer> list2) {
         return isAllRight(list1) && isAllRight(list2);
     }
 
     //숫자 두 개가 입력받아서 앞의 숫자가 더 크면 1, 뒤가 크면 2, 같으면 0을 리턴받는 메서드
-    private static int comPareTwoInt(int num1, int num2){
-        if(num1>num2) return 1;
-        if(num1 < num2) return 2;
+    private static int comPareTwoInt(int num1, int num2) {
+        if (num1 > num2) {
+            return 1;
+        }
+        if (num1 < num2) {
+            return 2;
+        }
         return 0;
     }
 
