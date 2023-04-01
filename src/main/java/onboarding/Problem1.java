@@ -38,4 +38,12 @@ class Problem1 {
         }
         return num/10 + num%10;
     }
+
+    //숫자가 들어오면 각자리의 숫자의 곱을 구해주는 메서드
+    private static int multipleNum(int num){
+        if(num>=100){
+            return num/100 * (num%100)/10 * num%10;
+        }
+        return num/10 * num%10;
+    }
 }
