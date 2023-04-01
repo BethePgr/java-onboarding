@@ -21,4 +21,8 @@ class Problem1 {
         return list.get(0) + 1 == list.get(0);
     }
 
+    //리스트의 두 숫자가 1과 400사이인가
+    private static boolean isBetweenOneAndFourHundred(List<Integer> list){
+        return (list.get(0) >= 1) && (list.get(1) <=400);
+    }
 }
