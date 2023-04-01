@@ -12,38 +12,48 @@ import java.util.List;
 시작 면이나 마지막 면이 나오도록 책을 펼치지 않는다.
 */
 class Problem1 {
+
     public static int solution(List<Integer> pobi, List<Integer> crong) {
         int answer = Integer.MAX_VALUE;
+
         return answer;
     }
+
     //리스트의 두 숫자가 연속인가
-    private static boolean isContinuous(List<Integer> list){
+    private static boolean isContinuous(List<Integer> list) {
         return list.get(0) + 1 == list.get(0);
     }
 
     //리스트의 두 숫자가 1과 400사이인가
-    private static boolean isBetweenOneAndFourHundred(List<Integer> list){
-        return (list.get(0) >= 1) && (list.get(1) <=400);
+    private static boolean isBetweenOneAndFourHundred(List<Integer> list) {
+        return (list.get(0) >= 1) && (list.get(1) <= 400);
     }
 
     //왼쪽이 홀수이고 오른쪽이 짝수가 맞는가
-    private static boolean oddAndEven(List<Integer> list){
+    private static boolean oddAndEven(List<Integer> list) {
         return (list.get(0) % 2 == 1) && (list.get(1) % 2 == 0);
     }
 
     //숫자가 들어오면 각자리의 숫자의 합을 구해주는 메서드
-    private static int addNum(int num){
-        if(num>=100){
-            return num/100 + (num%100)/10 + num%10;
+    private static int addNum(int num) {
+        if (num >= 100) {
+            return num / 100 + (num % 100) / 10 + num % 10;
         }
-        return num/10 + num%10;
+        return num / 10 + num % 10;
     }
 
     //숫자가 들어오면 각자리의 숫자의 곱을 구해주는 메서드
-    private static int multipleNum(int num){
-        if(num>=100){
-            return num/100 * (num%100)/10 * num%10;
+    private static int multipleNum(int num) {
+        if (num >= 100) {
+            return num / 100 * (num % 100) / 10 * num % 10;
         }
-        return num/10 * num%10;
+        return num / 10 * num % 10;
     }
+
+    //oddAndEven && isBetweenOneAndFourHundred && isContinuous 세 조건을 만족하는가?
+    private static boolean isAllRight(List<Integer> list){
+        return oddAndEven(list) && isBetweenOneAndFourHundred(list) && isContinuous(list);
+    }
+
+
 }
