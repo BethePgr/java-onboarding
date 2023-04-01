@@ -17,12 +17,15 @@ class Problem1 {
         if(!isBothAllRight(pobi,crong)) return -1;
         int pobiScore = listDecideMultiAndAdd(pobi);
         int crongScore = listDecideMultiAndAdd(crong);
+        System.out.println("pobiScore " + pobiScore);
+        System.out.println("crongScore " + crongScore);
+
         return comPareTwoInt(pobiScore,crongScore);
     }
 
     //리스트의 두 숫자가 연속인가
     private static boolean isContinuous(List<Integer> list) {
-        return list.get(0) + 1 == list.get(0);
+        return list.get(0) + 1 == list.get(1);
     }
 
     //리스트의 두 숫자가 1과 400사이인가
@@ -40,15 +43,15 @@ class Problem1 {
         if (num >= 100) {
             return num / 100 + (num % 100) / 10 + num % 10;
         }
-        return num / 10 + num % 10;
+        return (num / 10) + (num % 10);
     }
 
     //숫자가 들어오면 각자리의 숫자의 곱을 구해주는 메서드
     private static int multipleNum(int num) {
         if (num >= 100) {
-            return num / 100 * (num % 100) / 10 * num % 10;
+            return (num / 100) * ((num % 100) / 10) * (num % 10);
         }
-        return num / 10 * num % 10;
+        return (num / 10) * (num % 10);
     }
 
     //multipleNum과 addNum 둘 중에 어떠한 값이 더 큰가
