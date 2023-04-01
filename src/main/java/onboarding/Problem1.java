@@ -7,4 +7,6 @@ class Problem1 {
         int answer = Integer.MAX_VALUE;
         return answer;
     }
+
+    //커밋 정상작동하는지 확인
 }
