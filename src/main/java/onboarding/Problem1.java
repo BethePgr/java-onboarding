@@ -53,6 +53,10 @@ class Problem1 {
         return Math.max(addNum(num),multipleNum(num));
     }
 
+    //리스트가 들어왔을 시 리스트이 첫 번째 값과 두 번째 값의 decideMultiAndAdd해주기
+    private static int listDecideMultiAndAdd(List<Integer> list){
+        return Math.max(decideMultiAndAdd(list.get(0)),decideMultiAndAdd(list.get(1)));
+    }
 
     //oddAndEven && isBetweenOneAndFourHundred && isContinuous 세 조건을 만족하는가?
     private static boolean isAllRight(List<Integer> list){
