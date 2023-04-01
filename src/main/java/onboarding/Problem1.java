@@ -14,9 +14,7 @@ import java.util.List;
 class Problem1 {
 
     public static int solution(List<Integer> pobi, List<Integer> crong) {
-        int answer = Integer.MAX_VALUE;
-
-        return answer;
+        return 0;
     }
 
     //리스트의 두 숫자가 연속인가
@@ -50,6 +48,12 @@ class Problem1 {
         return num / 10 * num % 10;
     }
 
+    //multipleNum과 addNum 둘 중에 어떠한 값이 더 큰가
+    private static int decideMultiAndAdd(int num){
+        return Math.max(addNum(num),multipleNum(num));
+    }
+
+
     //oddAndEven && isBetweenOneAndFourHundred && isContinuous 세 조건을 만족하는가?
     private static boolean isAllRight(List<Integer> list){
         return oddAndEven(list) && isBetweenOneAndFourHundred(list) && isContinuous(list);
@@ -59,5 +63,7 @@ class Problem1 {
     private static boolean isBothAllRight(List<Integer> list1, List<Integer> list2){
         return isAllRight(list1) && isAllRight(list2);
     }
+
+
 
 }
