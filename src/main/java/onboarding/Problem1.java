@@ -55,5 +55,9 @@ class Problem1 {
         return oddAndEven(list) && isBetweenOneAndFourHundred(list) && isContinuous(list);
     }
 
+    //두 명 다 isAllRight를 만족하는가?
+    private static boolean isBothAllRight(List<Integer> list1, List<Integer> list2){
+        return isAllRight(list1) && isAllRight(list2);
+    }
 
 }
