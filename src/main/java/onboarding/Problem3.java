@@ -2,8 +2,7 @@ package onboarding;
 
 public class Problem3 {
     public static int solution(int number) {
-        int answer = 0;
-        return answer;
+        return count369FromOneToNum(number);
     }
 
     //해당 숫자가 3,6,9에 해당하는가?
@@ -21,6 +20,15 @@ public class Problem3 {
             num=num/10;
         }
         if(isNum369(num)) count++;
+        return count;
+    }
+
+    //1부터 입력받는 숫자까지 countOneByOne을 통해 이제까지 나온 3,6,9의 총 개수를 구한다.
+    private static int count369FromOneToNum(int num){
+        int count = 0;
+        for(int i = 1;i<=num;i++){
+            count += countOneByOne(i);
+        }
         return count;
     }
 
