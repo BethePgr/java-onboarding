@@ -18,7 +18,7 @@ public class Problem2 {
     //대체한다.
     private static String replaceString(String cryptogram) {
         for (int i = 0; i < cryptogram.length() - 1; i++) {
-            if (checkStepByStep(cryptogram,i,i+1)) {
+            if (checkStepByStep(cryptogram, i, i + 1)) {
                 int index = whenContinuousEnd(cryptogram, i) + 1;
                 return new StringBuilder(cryptogram).replace(i, index, "").toString();
             }
