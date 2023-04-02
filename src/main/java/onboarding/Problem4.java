@@ -29,5 +29,14 @@ public class Problem4 {
         return (char)intNum;
     }
 
+    //문자열이 들어온다면 for문을 통해 주어진 횟수만큼 mappingKeyAndValue를 실행시켜주는 메서드
+    private static String continuousMappingKeyAndValue(String word){
+        String answer = "";
+        for(int i = 0;i<word.length();i++){
+            answer+=mappingKeyAndValue(word.charAt(i));
+        }
+        return answer;
+    }
+
 
 }
