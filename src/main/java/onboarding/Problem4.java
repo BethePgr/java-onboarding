@@ -16,6 +16,7 @@ public class Problem4 {
 
     //A는 Z로, a는 Z로 역순시켜주는 static map을 완성시키는 메서드를 만든다.
     private static void completeMap(){
+        map.put(32,32);
         for(int i = 0;i<=25;i++){
             map.put(65+i,90-i);
             map.put(97+i,122-i);
@@ -27,5 +28,6 @@ public class Problem4 {
         int intNum = map.get(num);
         return (char)intNum;
     }
+
 
 }
