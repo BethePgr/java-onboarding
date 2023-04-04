@@ -48,10 +48,17 @@ public class Problem7 {
         }
         return friendsScoreMap;
     }
-
+    //value 10을 증가시켜주는 직접적인 메서드
     private static void friendsScoreAddMap(Map<String,Integer> friendsScoreMap,List<String> friend) {
         for (String userFriend : friend) {
             friendsScoreMap.put(userFriend,friendsScoreMap.getOrDefault(userFriend, 0) + 10);
+        }
+    }
+
+    //visitor 배열 값 하나하나를 key로 갖는 map의 value를 1씩 증가시켜주는 메서드
+    private static void visitorsAddOnePoint(Map<String,Integer> friendsScoreMap,List<String> visitors){
+        for(String visitor : visitors){
+            friendsScoreMap.put(visitor,friendsScoreMap.getOrDefault(visitor,0) + 1);
         }
     }
 
