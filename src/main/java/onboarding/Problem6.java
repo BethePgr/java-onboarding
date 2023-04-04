@@ -4,6 +4,7 @@ package onboarding;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Problem6 {
     public static List<String> solution(List<List<String>> forms) {
@@ -29,5 +30,15 @@ public class Problem6 {
             stringBuilder.append(x).append(",");
         }
         return stringBuilder.toString();
+    }
+
+    //긴 String에서 ,가 포함되지 않은 연속된 두 글자들을 list에 담는다.
+    private static List<String> getListOfTwoLetters(String str){
+        ArrayList<String> list = new ArrayList<>();
+        String [] strArray = str.split("");
+        for(int i = 0;i< strArray.length-1;i++){
+            list.add(strArray[i] + strArray[i+1]);
+        }
+        return list.stream().filter(x -> !x.contains(",")).sorted().collect(Collectors.toList());
     }
 }
