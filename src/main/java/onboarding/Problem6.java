@@ -1,46 +1,23 @@
 package onboarding;
 
+
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 public class Problem6 {
     public static List<String> solution(List<List<String>> forms) {
-        return lists(forms);
+        return null;
     }
 
-    private static List<String> lists(List<List<String>> forms){
-        Set<String> set = new HashSet<>();
-        for(int i = 0;i<forms.size();i++){
-            String str = forms.get(i).get(1);
-            for(int j = 0;j<str.length()-1;j++){
-                String temp = str.substring(j,j+2);
-                for(int k =0;k<forms.size();k++){
-                    if(i==k) continue;
-                    if(forms.get(k).get(1).contains(temp)){
-                        set.add(forms.get(k).get(0));
-                        set.add(forms.get(i).get(0));
-                    }
-                }
-            }
+    //forms의 이름 하나하나를 list에 담아 리턴하는 메서드
+    private static List<String> createUserNameList(List<List<String>> forms){
+        ArrayList<String> list = new ArrayList<>();
+        for(List<String> form : forms){
+            list.add(form.get(1));
         }
-        ArrayList<String> arrayList = new ArrayList<>(set);
-        Collections.sort(arrayList,(o1,o2)->o1.compareTo(o2));
-        return arrayList;
+        return list;
     }
 
-    public static void main(String[] args) {
-
-        List<List<String>> forms = new ArrayList<>();
-        for(int i = 0;i<10000;i++){
-            List<String> temp = new ArrayList<>();
-            temp.add("jm@email.com");
-            temp.add("가나다라마바사아자차");
-            forms.add(temp);
-        }
-        System.out.println(lists(forms));
-    }
 
 }
