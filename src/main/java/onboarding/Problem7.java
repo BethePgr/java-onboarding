@@ -8,6 +8,7 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
@@ -78,7 +79,20 @@ public class Problem7 {
         });
         return friendScoreMapList;
     }
-
-
+    //5명 리턴해주는 메서드 but 점수 0점이면서 직접적인 친구면 추가 시키지 않기
+    private static List<String> result(List<Map.Entry<String, Integer>> sortFriendsScoreMapList,List<String> friendsWithUserList){
+        List<String> answerlist = new ArrayList<>();
+        int index = 0;
+        for (Map.Entry<String, Integer> totalScoreMap : sortFriendsScoreMapList) {
+            if(totalScoreMap.getValue() != 0 || !friendsWithUserList.contains(totalScoreMap.getKey())) {
+                answerlist.add(totalScoreMap.getKey());
+            }
+            index++;
+            if(index ==5){
+                break;
+            }
+        }
+        return answerlist;
+    }
 
 }
