@@ -14,7 +14,6 @@ import java.util.stream.Collectors;
 
 public class Problem7 {
     public static List<String> solution(String user, List<List<String>> friends, List<String> visitors) {
-
         return null;
     }
 
@@ -79,12 +78,12 @@ public class Problem7 {
         });
         return friendScoreMapList;
     }
-    //5명 리턴해주는 메서드 but 점수 0점이면서 직접적인 친구면 추가 시키지 않기
+    //5명 리턴해주는 메서드 but 점수 0이 아니면서 직접적인 친구가 아닐 때에만 리스트에 추가함
     private static List<String> result(List<Map.Entry<String, Integer>> sortFriendsScoreMapList,List<String> friendsWithUserList){
         List<String> answerlist = new ArrayList<>();
         int index = 0;
         for (Map.Entry<String, Integer> totalScoreMap : sortFriendsScoreMapList) {
-            if(totalScoreMap.getValue() != 0 || !friendsWithUserList.contains(totalScoreMap.getKey())) {
+            if(totalScoreMap.getValue() != 0 && !friendsWithUserList.contains(totalScoreMap.getKey())) {
                 answerlist.add(totalScoreMap.getKey());
             }
             index++;
