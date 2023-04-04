@@ -2,6 +2,7 @@ package onboarding;
 
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -40,5 +41,21 @@ public class Problem6 {
             list.add(strArray[i] + strArray[i+1]);
         }
         return list.stream().filter(x -> !x.contains(",")).sorted().collect(Collectors.toList());
+    }
+
+    //addNameSet을 list안의 모든 두 글자들에게 적용시키는 메서드
+    private static Set<String> setTwoLetters(List<String> list){
+        HashSet<String> set = new HashSet<>();
+        for(int i = 0;i<list.size()-1;i++){
+            addNameSet(set,list.get(1),list.get(i+1));
+        }
+        return set;
+    }
+
+    //현재의 인덱스랑 다음 인덱스의 값이 같다면 set에 현재 인덱스의 값을 넣어준다.
+    private static void addNameSet(Set<String> set,String str1, String str2){
+        if(str1.equals(str2)){
+            set.add(str1);
+        }
     }
 }
