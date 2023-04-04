@@ -7,6 +7,9 @@ import java.util.Set;
 
 public class Problem6 {
     public static List<String> solution(List<List<String>> forms) {
+        List<String> userNameList = createUserNameList(forms);
+        String collectedName = collectUserName(userNameList);
+
         return null;
     }
 
@@ -19,5 +22,12 @@ public class Problem6 {
         return list;
     }
 
-
+    //닉네임이 담긴 리스트들을 ,로 join하기
+    private static String collectUserName(List<String> list){
+        StringBuilder stringBuilder = new StringBuilder();
+        for(String x : list){
+            stringBuilder.append(x).append(",");
+        }
+        return stringBuilder.toString();
+    }
 }
