@@ -99,16 +99,21 @@ public class Problem7 {
         List<String> answerlist = new ArrayList<>();
         int index = 0;
         for (Map.Entry<String, Integer> totalScoreMap : sortFriendsScoreMapList) {
-            if (totalScoreMap.getValue() != 0 && !friendsWithUserList.contains(
-                totalScoreMap.getKey())) {
-                answerlist.add(totalScoreMap.getKey());
-            }
+            addNot0AndNotFriend(totalScoreMap,friendsWithUserList,answerlist);
             index++;
             if (index == 5) {
                 break;
             }
         }
         return answerlist;
+    }
+
+    //점수 0이 아니면서 직접적인 친구가 아닐 때에만 리스트에 추가하는 메소드
+    private static void addNot0AndNotFriend(Map.Entry<String, Integer> totalScoreMap,List<String> friendsWithUserList,List<String> answerlist){
+        if (totalScoreMap.getValue() != 0 && !friendsWithUserList.contains(
+            totalScoreMap.getKey())) {
+            answerlist.add(totalScoreMap.getKey());
+        }
     }
 
 }
