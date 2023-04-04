@@ -2,10 +2,14 @@ package onboarding;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class Problem7 {
     public static List<String> solution(String user, List<List<String>> friends, List<String> visitors) {
@@ -55,12 +59,26 @@ public class Problem7 {
         }
     }
 
-    //visitor 배열 값 하나하나를 key로 갖는 map의 value를 1씩 증가시켜주는 메서드
+    //visitors 배열 값 하나하나를 key로 갖는 map의 value를 1씩 증가시켜주는 메서드
     private static void visitorsAddOnePoint(Map<String,Integer> friendsScoreMap,List<String> visitors){
         for(String visitor : visitors){
             friendsScoreMap.put(visitor,friendsScoreMap.getOrDefault(visitor,0) + 1);
         }
     }
+
+    //map 정렬하기 - value가 큰 순으로, value가 같다면 이름순으로 정렬한 것을 list로 변환 후 return
+    private static List<Map.Entry<String, Integer>> sortFriendsScoreMap(Map<String,Integer> friendsScoreMap,List<String> friendsWithUser){
+        List<Map.Entry<String, Integer>> friendScoreMapList = new LinkedList<>(friendsScoreMap.entrySet());
+        friendScoreMapList.sort((o1, o2) -> {
+            if (o1.getValue().equals(o2.getValue())) {
+                return o1.getKey()
+                    .compareTo(o2.getKey());
+            }
+            return o2.getValue() - o1.getValue();
+        });
+        return friendScoreMapList;
+    }
+
 
 
 }
